@@ -29,3 +29,6 @@ Meet App is a progressive web application (PWA) built with React that allows use
 - Node.js and npm installed on your machine.
 - A Google Cloud project with the Google Calendar API enabled.
 - AWS account for setting up Lambda functions
+
+# Contributors
+- [Vadym Makohon](https://github.com/VadymMakohon)
