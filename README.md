@@ -11,7 +11,7 @@ Meet App is a progressive web application (PWA) built with React that allows use
 - Add an App Shortcut to the Home Screen: Users can add a shortcut to the app on their home screen for quick access.
 - Display Charts Visualizing Event Details: The app provides visual representations of event details using charts.
 
-# User's Scenarios
+## User's Scenarios
 
 Feature 1: Filter Events by City
 SCENARIO 1: Show events from all cities when no city is specified
