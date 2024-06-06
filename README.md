@@ -13,7 +13,7 @@ Meet App is a progressive web application (PWA) built with React that allows use
 
 ## User's Scenarios
 
-Feature 1: Filter Events by City
+### Feature 1: Filter Events by City
 SCENARIO 1: Show events from all cities when no city is specified
 
 Given user hasn’t searched for any city;
@@ -32,7 +32,7 @@ Given user was typing “Bergen” in the city textbox AND the list of suggested
 When the user selects a city (e.g., “Bergen, Norway”) from the list;
 Then their city should be changed to that city (i.e., “Bergen, Norway”) AND the user should receive a list of upcoming events in that city.
 
-Feature 2: Show/Hide Event Details
+### Feature 2: Show/Hide Event Details
 SCENARIO 1: Show event details
 
 Given the user is viewing a list of events;
@@ -51,7 +51,7 @@ Given the user is viewing a list of events;
 When the user clicks on an event's "Show Details" button and then clicks the "Hide Details" button;
 Then the event's details should be shown and then hidden accordingly.
 
-Feature 3: Specify Number of Events
+### Feature 3: Specify Number of Events
 SCENARIO 1: Default number of events displayed
 
 Given the user has not specified the number of events to display;
@@ -70,7 +70,7 @@ Given the user is viewing the list of events;
 When the user enters an invalid number (e.g., "abc") in the "Number of events per page" input;
 Then the app should show an error message and prompt the user to enter a valid number.
 
-Feature 4: Use the App When Offline
+### Feature 4: Use the App When Offline
 SCENARIO 1: Access cached events when offline
 
 Given the user is offline;
@@ -89,7 +89,7 @@ Given the user is offline;
 When the user opens the app;
 Then the app should display a notification indicating it is in offline mode.
 
-Feature 5: Add an App Shortcut to the Home Screen
+### Feature 5: Add an App Shortcut to the Home Screen
 SCENARIO 1: Prompt to add a shortcut
 
 Given the user is using the app in a compatible browser;
@@ -108,7 +108,7 @@ Given the user has declined the prompt to add a shortcut;
 When the user dismisses the prompt;
 Then the app should not show the prompt again for a set period (e.g., 1 week).
 
-Feature 6: Display Charts Visualizing Event Details
+### Feature 6: Display Charts Visualizing Event Details
 SCENARIO 1: Display default charts for events
 
 Given the user is viewing event details;
