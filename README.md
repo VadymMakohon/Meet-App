@@ -127,6 +127,14 @@ Given the user is viewing an event's details;
 When there is no data available for visualization;
 Then the app should display a message indicating that no data is available for the charts.
 
+## Serverless Functions
+
+Meet App uses serverless functions to handle backend processes efficiently, providing scalability and reliability. Here’s a brief overview of their roles in the application:
+
+- Event Data Retrieval: Serverless functions fetch event data from an external API when users request to see events by city or category, ensuring data is always up-to-date.
+- User Authentication: These functions manage login and registration securely, allowing scalable user session management.
+- Real-Time Updates: Functions handle updates and notifications, ensuring users receive the latest event information instantly.
+- Data Processing: Tasks like filtering or sorting events based on user preferences are offloaded to serverless functions, enhancing client-side performance and user experience.
 
 ## Technical Requirements
 
