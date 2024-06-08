@@ -2,6 +2,10 @@
 
 Meet App is a progressive web application (PWA) built with React that allows users to fetch and view upcoming events from their Google Calendar. This app uses a test-driven development (TDD) technique to ensure high-quality code and focuses on delivering a seamless user experience with key features such as filtering events by city, showing/hiding event details, specifying the number of events, offline usage, and displaying charts to visualize event details.
 
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Key Features
 
 - Filter Events by City: Users can filter events based on the city to view events happening in their desired location.
