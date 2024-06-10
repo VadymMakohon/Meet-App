@@ -1,3 +1,5 @@
+// src/__tests__/CitySearch.test.js
+
 import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
@@ -37,13 +39,16 @@ describe('<CitySearch /> component', () => {
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
         CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+
         // user types "Berlin" in city textbox
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
         await user.type(cityTextBox, "Berlin");
+
         // filter allLocations to locations matching "Berlin"
         const suggestions = allLocations ? allLocations.filter((location) => {
             return location.toUpperCase().indexOf(cityTextBox.value.toUpperCase()) > -1;
         }) : [];
+
         // get all <li> elements inside the suggestion list
         const suggestionListItems = CitySearchComponent.queryAllByRole('listitem');
         expect(suggestionListItems).toHaveLength(suggestions.length + 1);
@@ -63,8 +68,10 @@ describe('<CitySearch /> component', () => {
 
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
         await user.type(cityTextBox, "Berlin");
+
         // the suggestion's textContent look like this: "Berlin, Germany"
         const BerlinGermanySuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
+
         await user.click(BerlinGermanySuggestion);
 
         expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);

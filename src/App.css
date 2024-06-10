@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -34,14 +25,9 @@ input[type="number"] {
   border: 1px solid #ccc;
   font-size: 14px;
   line-height: 20px;
+  align-self: center;
   height: 38px;
   margin-bottom: 20px;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .city {
@@ -63,72 +49,40 @@ input[type="number"]:focus {
   align-self: center;
   margin: 0;
   font-size: 14px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  overflow: hidden;
+  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
 
 .suggestions > li {
   text-align: left;
-  padding: 8px 10px;
-  background-color: #fff;
-  cursor: pointer;
-  border-bottom: 1px solid #ddd;
+  padding: 8px 6px 8px 10px;
+  background-color: #eee;
+  cursor: default;
 }
 
 .suggestions > li:last-child {
-  border-bottom: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .suggestions > li:hover {
-  background-color: #f1f1f1;
+  background-color: #bcdcdb;
 }
 
 .event {
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.event:hover {
-  transform: scale(1.02);
-}
-
-.event h3 {
-  margin-top: 0;
-  color: #007bff;
-}
-
-.event p {
-  color: #666;
+  position: relative;
 }
 
 .details-btn {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  padding: 8px 12px;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 8px;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.details-btn:hover {
-  background-color: #0056b3;
-}
-
-.details {
-  margin-top: 10px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-  background-color: #f9f9f9;
 }

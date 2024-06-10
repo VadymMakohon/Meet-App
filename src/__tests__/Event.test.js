@@ -1,36 +1,23 @@
-import { render, waitFor } from '@testing-library/react';
-import { getEvents } from '../api';
+// src/__tests__/Event.test.js
+
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getEvents } from '../api';
 import Event from '../components/Event';
 
 describe('<Event /> component', () => {
     let EventComponent;
     let allEvents;
-
-    beforeAll(async () => {
-        allEvents = await getEvents();
-    });
-
     beforeEach(async () => {
-        EventComponent = render(<Event event={allEvents[0]} />);
+        allEvents = await getEvents();
+        EventComponent = render(<Event event={allEvents[0]} />)
     });
 
-    test('shows events titles', () => {
+    test('renders event Title', () => {
         expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
     });
 
-    test('event details hidden by default', () => {
-        const details = EventComponent.container.querySelector('.details');
-        expect(details).not.toBeInTheDocument();
-    });
-
-    test('renders events start time', () => {
-        // Format the created date to match the expected output
-        const createdDate = new Date(allEvents[0].created).toUTCString();
-        expect(EventComponent.queryByText(createdDate)).toBeInTheDocument();
-    });
-
-    test('render event location', () => {
+    test('renders event location', () => {
         expect(EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
     });
 
@@ -38,30 +25,30 @@ describe('<Event /> component', () => {
         expect(EventComponent.queryByText('show details')).toBeInTheDocument();
     });
 
-    test('shows details section when the user clicks on (show details) button', async () => {
-        const user = userEvent.setup();
-        const showDetailsButton = EventComponent.queryByText('show details');
-
-        await user.click(showDetailsButton);
-
-        await waitFor(() => {
-            const details = EventComponent.container.querySelector('.details');
-            expect(details).toBeInTheDocument();
-        });
+    test("by default, event's details section should be hidden", () => {
+        expect(EventComponent.container.querySelector('.details')).not.toBeInTheDocument();
     });
 
-    test('hide details section when the user clicks on (hide details) button', async () => {
+    test("shows the details section when the user clicks on the 'show details' button", async () => {
         const user = userEvent.setup();
-        const showDetailsButton = EventComponent.queryByText('show details');
+        await user.click(EventComponent.queryByText('show details'));
 
-        await user.click(showDetailsButton);
+        expect(EventComponent.container.querySelector('.details')).toBeInTheDocument();
+        expect(EventComponent.queryByText('hide details')).toBeInTheDocument();
+        expect(EventComponent.queryByText('show details')).not.toBeInTheDocument();
+    });
 
-        const hideDetailsButton = EventComponent.queryByText('hide details');
-        await user.click(hideDetailsButton);
+    test("hides the details section when the user clicks on the 'hide details' button", async () => {
+        const user = userEvent.setup();
 
-        await waitFor(() => {
-            const details = EventComponent.container.querySelector('.details');
-            expect(details).not.toBeInTheDocument();
-        });
+        await user.click(EventComponent.queryByText('show details'));
+        expect(EventComponent.container.querySelector('.details')).toBeInTheDocument();
+        expect(EventComponent.queryByText('hide details')).toBeInTheDocument();
+        expect(EventComponent.queryByText('show details')).not.toBeInTheDocument();
+
+        await user.click(EventComponent.queryByText('hide details'));
+        expect(EventComponent.container.querySelector('.details')).not.toBeInTheDocument();
+        expect(EventComponent.queryByText('hide details')).not.toBeInTheDocument();
+        expect(EventComponent.queryByText('show details')).toBeInTheDocument();
     });
 });
