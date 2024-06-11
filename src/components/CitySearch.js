@@ -7,8 +7,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
 
     useEffect(() => {
         setSuggestions(allLocations);
-    }, [`${allLocations}`]);
-
+    }, [allLocations]); // Fixing the dependency array
 
     const handleInputChanged = (event) => {
         const value = event.target.value;
@@ -48,6 +47,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
                 : null
             }
         </div>
-    )
+    );
 }
+
 export default CitySearch;
