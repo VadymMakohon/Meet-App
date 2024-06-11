@@ -8,9 +8,8 @@ const feature = loadFeature('./src/features/showAndHideEventsDetails.feature');
 defineFeature(feature, (test) => {
     // Scenario 1
     test('An event element is collapsed by default.', ({ given, when, then }) => {
-        let AppComponent;
         given('the user first opens the app', () => {
-            AppComponent = render(<App />);
+            render(<App />);
         });
 
         when(
@@ -37,13 +36,11 @@ defineFeature(feature, (test) => {
         when,
         then,
     }) => {
-        let AppComponent;
         given('the user gets a list of events', async () => {
-            AppComponent = render(<App />);
-            const AppDOM = AppComponent.container.firstChild;
+            render(<App />);
 
             await waitFor(() => {
-                const eventList = within(AppDOM).queryAllByRole('listitem');
+                const eventList = screen.getAllByRole('listitem');
                 expect(eventList[0]).toBeTruthy();
             });
         });
@@ -65,14 +62,12 @@ defineFeature(feature, (test) => {
         when,
         then,
     }) => {
-        let AppComponent;
         let button;
         given('the user sees the details of an event', async () => {
-            AppComponent = render(<App />);
-            const AppDOM = AppComponent.container.firstChild;
+            render(<App />);
 
             await waitFor(() => {
-                const eventList = within(AppDOM).queryAllByRole('listitem');
+                const eventList = screen.getAllByRole('listitem');
                 expect(eventList[0]).toBeTruthy();
             });
 
