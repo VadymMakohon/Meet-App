@@ -35,16 +35,18 @@ input[type="number"] {
   height: 38px;
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type='text']:focus,
 input[type="number"]:focus {
   border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
 
 .city {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
 }
 
 #city-search {
@@ -76,7 +78,8 @@ input[type="number"]:focus {
 }
 
 .suggestions {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   position: absolute;
   top: 45px;
   z-index: 2;
@@ -152,4 +155,24 @@ input[type="number"]:focus {
 .details-btn:hover {
   background-color: #727cc2;
   color: #0786e0;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 5%;
+  }
+
+  .event {
+    padding: 20px 5px 25px;
+  }
+
+  .location, .summary {
+    font-size: 18px;
+  }
+
+  .details-btn {
+    font-size: 10px;
+    height: 34px;
+    padding: 6px 20px;
+  }
 }
