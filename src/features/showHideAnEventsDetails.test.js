@@ -3,7 +3,7 @@ import App from '../App';
 import { render, waitFor, within, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-const feature = loadFeature('./src/features/showAndHideEventsDetails.feature');
+const feature = loadFeature('./src/features/showAnHideEventsDetails.feature');
 
 defineFeature(feature, (test) => {
     // Scenario 1
