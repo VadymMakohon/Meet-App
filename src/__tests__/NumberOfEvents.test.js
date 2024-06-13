@@ -1,27 +1,25 @@
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NumberOfEvents from '../components/NumberOfEvents';
-
-describe('<NumberOfEvents /> component', () => {
-    test('renders number of events input', () => {
-        render(<NumberOfEvents setCurrentNOE={() => { }} />);
-        const numberTextBox = screen.getByRole('spinbutton');
-        expect(numberTextBox).toBeInTheDocument();
-        expect(numberTextBox).toHaveClass('number-of-events-input');
+import { render } from '@testing-library/react';
+describe('<NumberOfEvents /> Component', () => {
+    let NumberOfEventsComponent;
+    beforeEach(() => {
+        NumberOfEventsComponent = render(
+            <NumberOfEvents setCurrentNOE={() => { }} setErrorAlert={() => { }} />
+        );
     });
 
-    test('default value of the input field is 32', () => {
-        render(<NumberOfEvents setCurrentNOE={() => { }} />);
-        const numberTextBox = screen.getByRole('spinbutton');
-        expect(numberTextBox).toHaveValue(32);
+    test('has the input textbox', () => {
+        const input = NumberOfEventsComponent.queryByRole('textbox');
+        expect(input).toBeInTheDocument();
     });
-
-    test('value changes accordingly when user types', async () => {
-        render(<NumberOfEvents setCurrentNOE={() => { }} />);
-        const numberTextBox = screen.getByRole('spinbutton');
-        const user = userEvent.setup();
-        await user.clear(numberTextBox);
-        await user.type(numberTextBox, '10');
-        expect(numberTextBox).toHaveValue(10);
+    test('default number of events is 32', () => {
+        const input = NumberOfEventsComponent.queryByRole('textbox');
+        expect(input).toHaveValue('32');
+    });
+    test('updates number of events when user types', async () => {
+        const input = NumberOfEventsComponent.queryByRole('textbox');
+        await userEvent.type(input, '{backspace}{backspace}10');
+        expect(input).toHaveValue('10');
     });
 });

@@ -2,27 +2,32 @@
 
 import { useState } from "react";
 
-const NumberOfEvents = ({ setCurrentNOE }) => {
-    const [number, setNumber] = useState(32);
-
+const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
     const handleInputChanged = (event) => {
         const value = event.target.value;
-        setNumber(value);
-        setCurrentNOE(value); // Notify parent component
+
+        if (isNaN(value)) {
+            setErrorAlert('value is not a number');
+        } else if (value > 50) {
+            setErrorAlert('maximum value is 50');
+        } else if (value <= 0) {
+            setErrorAlert('minimum value is 1');
+        } else {
+            setErrorAlert('');
+            setCurrentNOE(value);
+        }
     };
 
     return (
         <div id="number-of-events">
-            <label htmlFor="number-of-events-input">Number of Events: </label>
             <input
-                type="number"
-                id="number-of-events-input"
-                className="number-of-events-input"
-                value={number}
+                type="text"
+                defaultValue="32"
                 onChange={handleInputChanged}
+                data-testid="numberOfEventsInput"
             />
         </div>
     );
-}
+};
 
 export default NumberOfEvents;
