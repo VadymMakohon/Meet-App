@@ -102,12 +102,6 @@ input[type="number"] {
   border-color: #007bff; /* Border color on hover */
 }
 
-.headerTitle {
-  font-size: 0.8rem;
-  background-color: #8a8a8b5e;
-  border-radius: 5px;
-}
-
 .charts-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

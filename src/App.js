@@ -1,11 +1,13 @@
+import React from 'react';
 import { useEffect, useState, useCallback } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
+import EventsGenresChart from './components/EventsGenresChart';
+import CityEventsChart from './components/CityEventsChart';
 import { extractLocations, getEvents } from './api';
 import './App.css';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
-import CityEventsChart from './components/cityEventsChart';
 
 const App = () => {
   const [events, setEvents] = useState([]);
@@ -15,6 +17,7 @@ const App = () => {
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
   const [warningAlert, setWarningAlert] = useState('');
+  const waitMessage = "Loading events, please wait...";
 
   const fetchData = useCallback(async () => {
     const allEvents = await getEvents();
@@ -40,7 +43,7 @@ const App = () => {
       <header>
         <h1>Meet App</h1>
       </header>
-      <div className="alerts-container">
+      <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
         {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
@@ -60,11 +63,19 @@ const App = () => {
           setErrorAlert={setErrorAlert}
         />
       </section>
-      <CityEventsChart allLocations={allLocations} events={events} />
-
-      <EventList events={events} />
+      {events.length ? (
+        <>
+          <div className='charts-container'>
+            <EventsGenresChart events={events} />
+            <CityEventsChart allLocations={allLocations} events={events} />
+          </div>
+          <EventList events={events} />
+        </>
+      ) : (
+        <p>{waitMessage}</p>
+      )}
     </div>
   );
-};
+}
 
 export default App;
