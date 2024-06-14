@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
@@ -30,21 +30,31 @@ const App = () => {
 
   return (
     <div className="App">
+      <header>
+        <h1>Meet App</h1>
+      </header>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
       </div>
-      <NumberOfEvents
-        setCurrentNOE={setCurrentNOE}
-        setErrorAlert={setErrorAlert}
-      ></NumberOfEvents>
-      <CitySearch
-        allLocations={allLocations}
-        setCurrentCity={setCurrentCity}
-        setInfoAlert={setInfoAlert}
-      ></CitySearch>
-      <EventList events={events}></EventList>
+      <section>
+        <h3>Choose the nearest city</h3>
+        <CitySearch
+          allLocations={allLocations}
+          setCurrentCity={setCurrentCity}
+          setInfoAlert={setInfoAlert}
+        />
+      </section>
+      <section>
+        <h3>Number of events</h3>
+        <NumberOfEvents
+          setCurrentNOE={setCurrentNOE}
+          setErrorAlert={setErrorAlert}
+        />
+      </section>
+      <EventList events={events} />
     </div>
   );
 };
+
 export default App;

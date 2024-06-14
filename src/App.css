@@ -11,6 +11,24 @@
   box-sizing: border-box;
 }
 
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -177,7 +195,7 @@ input[type="number"]:focus {
   }
 }
 
-alerts-container {
+.alerts-container {
   position: fixed;
   top: 0px;
   left: 20px;
