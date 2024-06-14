@@ -104,7 +104,7 @@ input[type="number"] {
 
 .charts-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /*to display both charts next to each other (two columns)*/
   border-radius: 5px;
   border: 1px solid rgba(128, 128, 128, 0.438);
 }
