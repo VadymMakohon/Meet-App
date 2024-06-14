@@ -34,7 +34,9 @@ export const getEvents = async () => {
         const response = await fetch(url);
         const result = await response.json();
         if (result) {
-            return result.events;
+            const events = result.events;
+            localStorage.setItem('lastEvents', JSON.stringify(events)); // Save events to localStorage
+            return events;
         } else return null;
     }
 };
