@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import './App.css';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 
 const App = () => {
   const [events, setEvents] = useState([]);
@@ -13,8 +13,9 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState('See all Cities');
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState('');
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const allEvents = await getEvents();
     const filteredEvents =
       currentCity === 'See all Cities'
@@ -22,11 +23,16 @@ const App = () => {
         : allEvents.filter((event) => event.location === currentCity);
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
-  };
+  }, [currentCity, currentNOE]);
 
   useEffect(() => {
+    if (navigator.onLine) {
+      setWarningAlert('');
+    } else {
+      setWarningAlert('You seem to be offline!');
+    }
     fetchData();
-  }, [currentCity, currentNOE]);
+  }, [fetchData]);
 
   return (
     <div className="App">
@@ -36,6 +42,7 @@ const App = () => {
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
       </div>
       <section>
         <h3>Choose the nearest city</h3>
