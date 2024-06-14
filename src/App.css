@@ -2,31 +2,16 @@
 
 .App {
   text-align: center;
-  padding: 2% 5%;
-  background-color: #f9f9f9;
-  font-family: 'Roboto', sans-serif;
+  padding: 0% 5%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }
 
 .App * {
   box-sizing: border-box;
-}
-
-header {
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 1em;
-  margin-bottom: 10px;
-}
-
-section {
-  margin-bottom: 20px;
 }
 
 ul {
@@ -35,16 +20,13 @@ ul {
 }
 
 p {
-  margin: 13px 0;
-  padding: 15px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  margin: 5px 0;
 }
 
-input[type='text'],
+input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   outline: none;
   border: 1px solid #ccc;
   font-size: 14px;
@@ -52,52 +34,21 @@ input[type="number"] {
   align-self: center;
   height: 38px;
   margin-bottom: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input[type='text']:focus,
-input[type="number"]:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
 
 .city {
-  width: 100%;
-  max-width: 250px;
+  width: 250px;
 }
 
 #city-search {
   display: flex;
   flex-direction: column;
+  margin: auto;
   position: relative;
 }
 
-.location {
-  padding: 15px;
-  font-size: 25px;
-  color: #333;
-}
-
-.summary {
-  font-size: 20px;
-  padding: 10px;
-  color: #34427b;
-}
-
-.created {
-  font-size: 15px;
-  color: #575757;
-}
-
-.des-info {
-  font-size: 19px;
-  color: #666;
-}
-
 .suggestions {
-  width: 100%;
-  max-width: 250px;
+  width: 250px;
   position: absolute;
   top: 45px;
   z-index: 2;
@@ -105,48 +56,31 @@ input[type="number"]:focus {
   margin: 0;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #fff;
+  background-color: #eee;
   cursor: default;
-  border-bottom: 1px solid #ccc;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .suggestions > li:last-child {
-  border-bottom: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .suggestions > li:hover {
-  background-color: #1722c6;
-  color: #fff;
+  background-color: #bcdcdb;
 }
 
 .event {
-  padding: 30px 10px 35px;
-  margin-bottom: 20px;
+  padding: 10px 10px 35px;
+  margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  background-image: linear-gradient(180deg, #fff, #f5f5fa);
+  border-radius: 4px;
   position: relative;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.event:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-.event h3 {
-  margin: 0 0 10px;
-  color: #333;
 }
 
 .details-btn {
@@ -157,41 +91,33 @@ input[type="number"]:focus {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  display: inline-block;
-  border: none;
-  font-weight: 600;
-  color: #727cc2;
-  font-size: 12px;
-  height: 38px;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background-image: linear-gradient(180deg, #fff, #f5f5fa);
-  box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #f5f5f5; /* Default background color */
+  border: 1px solid #ccc; /* Default border color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 .details-btn:hover {
-  background-color: #727cc2;
-  color: #0786e0;
+  background-color: #007bff; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+  border-color: #007bff; /* Border color on hover */
+}
+
+.headerTitle {
+  font-size: 0.8rem;
+  background-color: #8a8a8b5e;
+  border-radius: 5px;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.438);
 }
 
 @media (max-width: 768px) {
-  .App {
-    padding: 5%;
-  }
-
-  .event {
-    padding: 20px 5px 25px;
-  }
-
-  .location, .summary {
-    font-size: 18px;
-  }
-
-  .details-btn {
-    font-size: 10px;
-    height: 34px;
-    padding: 6px 20px;
+  .charts-container {
+    grid-template-columns: 1fr;
   }
 }
 
