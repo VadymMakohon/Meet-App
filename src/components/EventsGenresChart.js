@@ -2,7 +2,7 @@ import React from 'react';
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
 
-const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular']; // Move genres outside the component
+const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
 
 const EventsGenresChart = ({ events }) => {
     const [data, setData] = useState([]);
@@ -21,7 +21,7 @@ const EventsGenresChart = ({ events }) => {
         };
 
         setData(getData());
-    }, [events]); // No need to include genres in the dependency array as it is now outside the component
+    }, [events]);
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;

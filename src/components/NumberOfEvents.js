@@ -1,7 +1,3 @@
-// src/components/NumberOfEvents.js
-
-import { useState } from "react";
-
 const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
     const handleInputChanged = (event) => {
         const value = event.target.value;
