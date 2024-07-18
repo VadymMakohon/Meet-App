@@ -2,11 +2,11 @@
 
 Contributions to this project are released to the public under the project's open source license.
 
-Everyone is welcome to contribute to myFlix-client. Contributing doesn’t just mean submitting pull requests—there are many different ways for you to get involved, including answering questions, reporting or triaging issues, and participating in discussions about the project.
+Everyone is welcome to contribute to Meet-App. Contributing doesn’t just mean submitting pull requests—there are many different ways for you to get involved, including answering questions, reporting or triaging issues, and participating in discussions about the project.
 
 Before contributing, please read the Contributor Covenant Code of Conduct. By participating, you are expected to uphold this code.
 
-We love pull requests. Here's a quick guide:
+I love pull requests. Here's a quick guide:
 
 1. Check for existing issues to avoid duplicates.
 2. Fork the repo and clone it locally.
